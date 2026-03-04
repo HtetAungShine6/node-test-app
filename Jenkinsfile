@@ -6,7 +6,7 @@ pipeline {
 	}
 
 	environment {
-		DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
+		DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
 		IMAGE_NAME = "${DOCKERHUB_CREDENTIALS_USR}/nodeimage"
 	}
 
