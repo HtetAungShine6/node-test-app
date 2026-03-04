@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout Github') {
             steps {
-                git credentialsId: 'jen-doc-git', url: 'https://github.com/HtetAungShine6/simple-node-js-react-npm-app.git'
+                git credentialsId: 'jen-doc-git', url: 'https://github.com/HtetAungShine6/node-test-app.git'
             }
         }
 
