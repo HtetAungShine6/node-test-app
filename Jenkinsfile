@@ -37,14 +37,15 @@ pipeline {
         }
 		stage('Build Docker Image') {
 			steps {
-				sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+				sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} -t ${IMAGE_NAME}:latest ."
 			}
 		}
 		stage('Push Docker Image') {
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				// Docker Hub auto-creates the repo on first push
-				sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
+				// sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
+				sh "docker push ${IMAGE_NAME}:latest"
 			}
 		}
     }
